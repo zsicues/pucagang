@@ -6,9 +6,9 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center; /* Középre igazítja a tartalmat függőlegesen */
+    align-items: center; /* Középre igazítja a tartalmat vízszintesen */
     height: 100vh;
-    justify-content: flex-start;
     overflow: hidden;
 }
 
@@ -28,12 +28,12 @@ body {
 
 /* Közös konténer a logónak és a social ikonoknak */
 .top-container {
-    position: absolute; /* A div fix pozícióban lesz */
-    top: 20%; /* A logó és social szekció 20%-nál kezdődik az oldalon */
-    left: 50%;
-    transform: translateX(-50%); /* A div középre igazítása */
     text-align: center; /* A belső elemek középre igazítása */
     z-index: 10; /* A többi elem felett legyen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Logó stílusai */
