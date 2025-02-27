@@ -1,28 +1,30 @@
 /* Általános stílusok */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif; /* Roboto  */
-    background-color: #121212;
+    font-family: 'Roboto', sans-serif; /* Az alap betűtípus most Roboto */
+    background-color: #121212; /* Matt fekete háttér */
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    justify-content: flex-start; 
+    justify-content: flex-start; /* A tetejére igazítjuk a tartalmat */
     overflow: hidden;
 }
 
+/* Logo a tetején, lejjebb helyezve, fehér LED hatással */
 .logo {
-    margin-top: 250px;
+    position: fixed; /* A logó fix pozícióban lesz */
+    top: 250px; /* A logó a képernyő tetejétől 250px-re kerül */
     text-align: center;
-    position: relative;
+    left: 50%; /* A logó a képernyő közepére kerül */
+    transform: translateX(-50%); /* A logó pontosan középre kerül horizontálisan */
+    z-index: 10; /* Magasabb rétegre helyezzük, hogy ne takarja más elem */
 }
 
-      
-
 .logo img {
-    width: 300px; 
-    filter: brightness(1) drop-shadow(0 0 12px #ffffff); /* Fehér LED hatás */
+    width: 300px; /* A logó nagyobb méretben */
+    filter: brightness(0.9) drop-shadow(0 0 15px #ffffff); /* Fehér LED hatás */
 }
 
 /* Háttér GIF - Homályosítás 20%-kal */
@@ -32,11 +34,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('background.gif');
+    background-image: url('background.gif'); /* A háttér GIF itt lesz */
     background-size: cover;
     background-position: center;
     z-index: -1; /* A háttér alá kerül */
-    filter: blur(12px); /* TESZTELD H MEKKORA AZ IDEALIS!! */
+    filter: blur(5px); /* Homályosítás 20%-kal (kb. 5px) */
 }
 
 /* Profilok szekció */
@@ -44,12 +46,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; 
-    gap: 30px; 
-    margin-top: 80px; 
+    flex-wrap: wrap; /* Ha nem fér el az összes box, új sorba kerülnek */
+    gap: 30px; /* Növeltük a távolságot a boxok között */
+    margin-top: 80px; /* Kis távolság a logó alatt */
     position: absolute;
-    top: 50%; 
-    transform: translateY(-50%); 
+    top: 50%; /* Az oldal közepére igazítjuk függőlegesen */
+    transform: translateY(-50%); /* A pontos középre igazításhoz */
 }
 
 /* Minden box stílusai */
