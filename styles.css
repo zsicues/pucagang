@@ -1,33 +1,18 @@
 /* Általános stílusok */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif; /* Az alap betűtípus most Roboto */
+    font-family: 'Roboto', sans-serif; /* Az alap betűtípus Roboto */
     background-color: #121212; /* Matt fekete háttér */
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    justify-content: flex-start; /* A tetejére igazítjuk a tartalmat */
+    justify-content: flex-start;
     overflow: hidden;
 }
 
-/* Logo a tetején, lejjebb helyezve, fehér LED hatással */
-.logo {
-    position: fixed; /* A logó fix pozícióban lesz */
-    top: 250px; /* A logó a képernyő tetejétől 250px-re kerül */
-    text-align: center;
-    left: 50%; /* A logó a képernyő közepére kerül */
-    transform: translateX(-50%); /* A logó pontosan középre kerül horizontálisan */
-    z-index: 10; /* Magasabb rétegre helyezzük, hogy ne takarja más elem */
-}
-
-.logo img {
-    width: 300px; /* A logó nagyobb méretben */
-    filter: brightness(0.9) drop-shadow(0 0 15px #ffffff); /* Fehér LED hatás */
-}
-
-/* Háttér GIF - Homályosítás 20%-kal */
+/* Háttér GIF */
 .background-gif {
     position: fixed;
     top: 0;
@@ -38,20 +23,33 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1; /* A háttér alá kerül */
-    filter: blur(5px); /* Homályosítás 20%-kal (kb. 5px) */
+    filter: blur(5px); /* Homályosítás 20%-kal */
 }
 
-/* Profilok szekció */
+/* Közös konténer a logónak és a social ikonoknak */
+.top-container {
+    position: absolute; /* A div fix pozícióban lesz */
+    top: 20%; /* A logó és social szekció 20%-nál kezdődik az oldalon */
+    left: 50%;
+    transform: translateX(-50%); /* A div középre igazítása */
+    text-align: center; /* A belső elemek középre igazítása */
+    z-index: 10; /* A többi elem felett legyen */
+}
+
+/* Logó stílusai */
+.logo img {
+    width: 300px; /* A logó mérete */
+    filter: brightness(0.9) drop-shadow(0 0 15px #ffffff); /* Fehér LED hatás */
+}
+
+/* Profilok (social ikonok) stílusai */
 .profiles {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Ha nem fér el az összes box, új sorba kerülnek */
-    gap: 30px; /* Növeltük a távolságot a boxok között */
-    margin-top: 80px; /* Kis távolság a logó alatt */
-    position: absolute;
-    top: 50%; /* Az oldal közepére igazítjuk függőlegesen */
-    transform: translateY(-50%); /* A pontos középre igazításhoz */
+    flex-wrap: wrap;
+    gap: 30px; /* A profilok közötti távolság */
+    margin-top: 30px; /* Távolság a logótól */
 }
 
 /* Minden box stílusai */
@@ -64,7 +62,7 @@ body {
     height: 0;
     padding-bottom: 18%; /* Kisebb méret arányosítása */
     transition: all 0.3s ease;
-    box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.2); /* Finomabb árnyék */
+    box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,29 +70,32 @@ body {
     position: relative;
 }
 
-.profile:hover {
-    box-shadow: 0px 0px 20px 6px rgba(255, 255, 255, 0.4); /* Finomított hover hatás */
-}
-
-/* Elegánsabb betűtípusok a feliratokhoz */
-.profile h2 {
-    font-family: 'Montserrat', sans-serif; /* Az elegáns betűtípus most Montserrat */
-    font-size: 18px; /* Kisebb szöveg */
-    margin-bottom: 10px;
-}
-
 /* Ikonok */
 .icon {
-    margin-top: 10px; /* A boxok alatt, hogy a boxok ne ütközzenek az ikonokkal */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1; /* A logót a doboz közepére igazítja */
+    margin-top: 10px; /* Kis távolság a feliratok és az ikonok között */
 }
 
 .icon img {
     width: 40px; /* Kisebb ikonok */
     height: 40px;
     object-fit: cover;
+}
+
+/* Profilok feliratai */
+.profile h2 {
+    font-family: 'Poppins', sans-serif; /* Az elegáns betűtípus most Montserrat */
+    font-size: 16px; /* Csökkentett betűméret */
+    margin-bottom: 10px;
+    margin-top: -5px; /* A feliratokat feljebb emeljük, hogy ne érjenek a dobozhoz */
+}
+
+/* Hover hatás */
+.profile:hover {
+    box-shadow: 0px 0px 20px 6px rgba(255, 255, 255, 0.4); /* Finomított hover hatás */
 }
 
 /* Footer */
@@ -105,4 +106,9 @@ footer {
     text-align: center;
     width: 100%;
     color: rgba(255, 255, 255, 0.6);
+}
+
+/* Betűtípusok módosítása a Poppins-ra */
+h2, p {
+    font-family: 'Poppins', sans-serif; /* A social profilok címének betűtípusa Poppins */
 }
