@@ -1,1 +1,1 @@
-# pucagang.github.io
+# pucagang.xyz
