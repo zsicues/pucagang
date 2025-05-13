@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUCAGANG Információs Oldal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Audiowide', sans-serif;
+      background-color: #000;
+      color: #ffa500;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      background: url('https://i.ytimg.com/vi/V4ugbtZa90M/maxresdefault.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-family: 'Audiowide', cursive;
+      color: #ffa500;
+      z-index: 1;
+      animation: floatText 3s ease-in-out infinite;
+    }
+
+    .btn {
+      background-color: #ffa500;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      z-index: 1;
+      margin-top: 1rem;
+      box-shadow: 0 0 20px #ffa500;
+      font-family: 'Press Start 2P', cursive;
+      transition: transform 0.3s ease-in-out;
+      animation: floatText 3s ease-in-out infinite;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    section {
+      padding: 4rem 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .highlight {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #ffa500;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px #000;
+    }
+
+    .music-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .music-box {
+      background-color: #333;
+      color: #ffa500;
+      border: 3px solid #ffa500;
+      border-radius: 10px;
+      width: 320px;
+      height: 420px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 0 15px #ffa500;
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .music-box:hover {
+      transform: scale(1.05);
+      background-color: #444;
+    }
+
+    .music-box iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+    }
+
+    .music-description {
+      font-size: 1rem;
+      color: #fff;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .spotify iframe {
+      width: 100%;
+      max-width: 100%;
+      height: 380px;
+      margin: 2rem 0;
+      display: block;
+      border: 3px solid #ffa500;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ffa500;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .concerts {
+      background: #333;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #ffa500;
+    }
+
+    .concerts h3 {
+      text-align: center;
+      color: #ffa500;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .concerts .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid #ffa500;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .concerts .event:hover {
+      background-color: #444;
+    }
+
+    .event p {
+      font-size: 1.2rem;
+      color: #ffa500;
+    }
+
+    .event span {
+      font-size: 1rem;
+      color: #fff;
+      background-color: #ffa500;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #ffa500;
+    }
+
+    /* Játék stílus */
+    #game {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    #catchBtn {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      padding: 1rem 2rem;
+      background-color: #ffa500;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ffa500;
+      transition: 0.2s;
+    }
+
+    #catchBtn:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .spotify iframe {
+  width: 100%;
+  max-width: 1000px;
+  height: 380px;
+  margin: 2rem auto;
+  display: block;
+  border: 3px solid #ffa500;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ffa500;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>INFÓPULT</h1>
+    <button class="btn" onclick="document.getElementById('music').scrollIntoView({ behavior: 'smooth' })">Tovább!</button>
+  </header>
+
+  <section id="music">
+    <h2 class="highlight">Zene</h2>
+    <div class="music-container">
+      <div class="music-box">
+        <iframe src="https://www.youtube.com/embed/V4ugbtZa90M" title="Szőrös Freestyle" allowfullscreen></iframe>
+        <div class="music-description">
+          <p><strong>Szőrös Freestyle</strong> – Brutális energia, kemény flow. Ez a track a PUCAGANG nyers stílusát testesíti meg.</p>
+        </div>
+      </div>
+      <div class="music-box">
+        <iframe src="https://www.youtube.com/embed/T85I-jDhjwk" title="YY2 (feat. Yallowdie)" allowfullscreen></iframe>
+        <div class="music-description">
+          <p><strong>YY2</strong> – Kollab Yallowdie-val. Modern trap vibe, fülbemászó refrénnel. Igazi klubsláger.</p>
+        </div>
+      </div>
+      <div class="music-box">
+        <iframe src="https://www.youtube.com/embed?listType=playlist&list=OLAK5uy_msZNC4fFxUNERuv8fvoMeZfvwpAPKNTRU" title="Unemployed Lifestyle EP" allowfullscreen></iframe>
+        <div class="music-description">
+          <p><strong>Unemployed Lifestyle EP</strong> – Egy életstílus manifesztuma. Trap, minimal és mély hangulatok keveréke.</p>
+        </div>
+      </div>
+    </div>
+    <div class="spotify">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6fHOvKUXomCb22hVTvK2qF?utm_source=generator" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="concerts" class="concerts">
+    <h3>Koncertek</h3>
+    <div class="event">
+      <p>PUCAGANG Live Show</p>
+      <span>2025.06.10.</span>
+    </div>
+    <div class="event">
+      <p>PUCAGANG x Yallowdie</p>
+      <span>2025.07.15.</span>
+    </div>
+    <div class="event">
+      <p>PUCAGANG Club Tour</p>
+      <span>2025.08.20.</span>
+    </div>
+  </section>
+
+  <section id="game">
+    <h2 class="highlight">Kapd el a PUCÁT!</h2>
+    <div style="position: relative; height: 300px;">
+      <button id="catchBtn">nyomj meg, és nyerj 1.000.000 forintot!</button>
+    </div>
+    <p id="result" style="margin-top: 2rem; font-size: 1.2rem; color: #fff;"></p>
+  </section>
+
+<script>
+  const btn = document.getElementById('catchBtn');
+  const result = document.getElementById('result');
+  let attempt = 0;
+
+  btn.addEventListener('mousemove', () => {
+    const x = Math.random() * (window.innerWidth - 200);
+    const y = Math.random() * (window.innerHeight - 200);
+    btn.style.left = `${x}px`;
+    btn.style.top = `${y}px`;
+
+    const messages = [
+      'Túl lassú vagy!',
+      'Haha, majd legközelebb!',
+      'Ez sem jött össze...',
+      'Közel voltál!',
+      'Nem ma, haver!'
+    ];
+
+    result.textContent = messages[Math.floor(Math.random() * messages.length)];
+  });
+
+  btn.addEventListener('click', () => {
+    result.textContent = 'NA VÉGRE! Elcsípted a PUCÁT!';
+    btn.disabled = true;
+    btn.style.opacity = 0.5;
+  });
+</script>
+
+
+</body>
+</html>
